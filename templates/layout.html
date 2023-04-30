@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>result</title>
+</head>
+
+<body class="bg-black">
+       <!-- navbar  -->
+       <div class="nav px-10 bg-[#1b1e25] py-4">
+        <nav class=" flex justify-between items-center">
+            <div class="logo font-bold text-lg md:text-3xl text-white cursor-pointer"><a href="/">Check Suger</a></div>
+            <div class="menue">
+                <ul class="c hidden md:flex space-x-8 font font-semibold text-white">
+                    <li class="hover:font-bold cursor-pointer"><a href="/">Home</a></li>
+                    <li class="hover:font-bold cursor-pointer"><a href="/about">About</a></li>
+                    <li class="hover:font-bold cursor-pointer"><a href="/contact">Contact</a></li>
+                </ul><a href="/"></a>
+                <div class="mob-menue">
+                    <div class="hamburger border-2 border-white p-1 rounded-md cursor-pointer md:hidden">
+                        <div class="bg-white w-5 h-0.5 my-1 rounded-lg"></div>
+                        <div class="bg-white w-5 h-0.5 my-1 rounded-lg"></div>
+                        <div class="bg-white w-5 h-0.5 my-1 rounded-lg"></div>
+                    </div>
+                    <div class="menu w-1/2 h-screen position fixed -translate-x-16 -translate-y-12 bg-slate-500 hidden">
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+        
+
+    {% block body %} {% endblock %}
+    
+</body>

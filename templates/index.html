@@ -1,0 +1,176 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<!-- form  -->
+<div class="flex justify-center items-center  pt-10">
+    <div class="content md:flex md:justify-center w-10/12">
+        <!-- right for mobile -->
+        <div class="hero mx-14  w-1/3 h-full space-y-5 md:hidden">
+            <img src="{{ url_for('static', filename='doctor.png') }}" alt="Doctor">
+            <div class="flex flex-col justify-center items-center space-y-6 ">
+                <div class="text-white font-bold text-5xl">Hello,</div>
+                <div class="text-white font-bold text-5xl">I'm your Consultant</div>
+                <div class="text-white font-semibold text-3xl">Kindly, fill this form</div>
+            </div>
+        </div>
+
+        <!-- left -->
+
+        <div class="flex mx-10 mt-8 md:mx-0 container md:w-1/2 form">
+
+            <form action="{{ url_for('predict')}}" method="post"
+                class=" w-3/4 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                <!-- name  -->
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-bold mb-2" for="name">
+                        Name:
+                    </label>
+                    <input
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="name" type="text" placeholder="Enter your Name" name="name" required>
+                </div>
+                <!-- eMAIL  -->
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-bold mb-2" for="name">
+                        Email:
+                    </label>
+                    <input
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="name" type="text" placeholder="Enter your Email id" name="email" required>
+                </div>
+                <!-- phone -->
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-bold mb-2" for="phone">
+                        Phone Number:
+                    </label>
+                    <input
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="phone" type="tel" placeholder="Enter your phone number" name="phone" required>
+                </div>
+                <!-- gender  -->
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-bold mb-2" for="option1">
+                        Gender:
+                    </label>
+                    <select
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="option1" name="gender" , defa>
+                        <option value="option1-1">please select</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="others">Others</option>
+                    </select>
+                </div>
+
+
+                <!-- age  -->
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-bold mb-2" for="phone">
+                        Age:
+                    </label>
+                    <input
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="age" type="tel" placeholder="Enter your age" name="age" required>
+                </div>
+
+                <!-- pregency  -->
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-bold mb-2" for="phone">
+                        Number of time pregenent (for Females only):
+                    </label>
+                    <input
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="preg" type="tel" placeholder="Number of time pregnent  " name="preg" value="0">
+                </div>
+
+                <!-- height  -->
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-bold mb-2" for="phone">
+                        Current height (in meters):
+                    </label>
+                    <input
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="height" type="tel" placeholder="Enter your height (meters) " name="height" required>
+                </div>
+                <!-- weight -->
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-bold mb-2" for="phone">
+                        Current Weight (in Kilograms):
+                    </label>
+                    <input
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="weight" type="tel" placeholder="Enter your Weight (in Kilograms) " name="weight" required>
+                </div>
+
+                <!-- BP -->
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-bold mb-2" for="phone">
+                        Blood Pressure (measured in last 2 hours):
+                    </label>
+                    <input
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="bp" type="tel" placeholder="Enter your Blood Pressure " name="bp" required>
+                </div>
+
+                <!-- glucose -->
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-bold mb-2" for="phone">
+                        Glucose:
+                    </label>
+                    <input
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="glucose" type="tel" placeholder="enter glucose" name="glucose" required>
+                </div>
+
+                <!-- skin thickness -->
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-bold mb-2" for="phone">
+                        Approx. Skin thickness (in mm):
+                    </label>
+                    <input
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="skithik" type="tel" placeholder="Enter your Skin thickness " name="skithik" required>
+                </div>
+                <!-- insulin -->
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-bold mb-2" for="phone">
+                        Insulin:
+                    </label>
+                    <input
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="insulin" type="tel" placeholder="2-Hour serum insulin (mu U/ml)" name="insulin" required>
+                </div>
+                <!-- Diabates Pedigree function  -->
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-bold mb-2" for="phone">
+                        Diabates Pedigree index (optional):
+                    </label>
+                    <input
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="dpf" type="tel" placeholder="Enter family Diabates pedegree index" name="dpf">
+                </div>
+                <div class=" mt-16 flex justify-center items-center">
+                    <button type="submit" class="border-2 border-black px-10 md:px-20 py-1 text-lg md:text-xl rounded-lg hover:bg-black hover:text-white hover:font-semibold">Check</button>
+                </div>
+            </form>
+
+
+        </div>
+        {{ prediction_text }}
+
+        <!-- right for pc -->
+        <div class=" hidden md:block hero w-1/3 h-full space-y-5">
+            <img src="{{ url_for('static', filename='doctor.png') }}" alt="Doctor">
+            <div class="flex flex-col justify-center items-center space-y-6 ">
+                <div class="text-white font-bold text-5xl">Hello,</div>
+                <div class="text-white font-bold text-5xl">I'm your Consultant</div>
+                <div class="text-white font-semibold text-3xl">Kindly, fill this form</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}
